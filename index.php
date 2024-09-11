@@ -1,5 +1,7 @@
 <?php
 require ("logica/Producto.php");
+require ("./persistencia/Conexion.php");
+require ("logica/categoriass.php");
 ?>
 <html>
 <head>
@@ -42,8 +44,14 @@ require ("logica/Producto.php");
 						href="#" role="button" data-bs-toggle="dropdown"
 						aria-expanded="false">Categoria</a>
 						<ul class="dropdown-menu">
-							<li><a class="dropdown-item" href="#">Categoria 1</a></li>
-							<li><a class="dropdown-item" href="#">Categoria 2</a></li>
+							<?php
+							$categoriaD = new Categoria();
+							$categorias = $categoriaD->consultarTodos();
+							foreach($categorias as $categoriaa){
+								$nombre = $categoriaa->getNombre(); 
+                           echo "<li><a class='dropdown-item' href='#'>$nombre</a></li>";
+							}
+							?>
 						</ul></li>
 				</ul>
 			</div>

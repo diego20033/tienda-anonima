@@ -1,5 +1,4 @@
 <?php
-require ("./persistencia/Conexion.php");
 require ("./persistencia/ProductoDAO.php");
 
 class Producto{
